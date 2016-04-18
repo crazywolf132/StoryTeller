@@ -36,7 +36,7 @@ public class Finished extends JFrame {
             String story1 = s.generateStory(gs);
             System.out.println(story1);
             JTextArea story = new JTextArea(story1);
-            story.setBounds(63, 100, 89, 23);
+            story.setBounds(0, 0, 300, 300);//Made text area bigger!
             getContentPane().add(story);
 
 
