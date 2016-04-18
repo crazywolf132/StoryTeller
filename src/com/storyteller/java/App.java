@@ -20,6 +20,8 @@ public class App extends JFrame{
     //Seperate class or something?
     public static int WIDTH = 300;
     public static int HEIGHT = 300;
+    public JComboBox comboBox;
+
 
     public App() {
 
@@ -70,6 +72,7 @@ public class App extends JFrame{
             {
                 char1 = App.this.name.getText();
                 Finished finished = new Finished(char1);
+                String selectedItem = (String)App.this.comboBox.getSelectedItem();
             }
         });
         comboBox.addActionListener(new ActionListener() {
