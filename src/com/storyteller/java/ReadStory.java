@@ -13,6 +13,11 @@ public class ReadStory extends JFrame {
 
     public ReadStory(String gs) {
 
+        /**
+         * This file was only here for testing purposes... and has nothing to do with the rest of the project.
+         * Please refraim from using this file, As it will cause errors as there was no character name input.
+         */
+
         //Character 1 setup.
         getContentPane().setLayout(null);
         setSize(300, 300);
