@@ -95,8 +95,7 @@ public class App extends JFrame {
         comboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selected.setText("You Selected : " +
-                        ((JComboBox) e.getSource()).getSelectedItem());
+                selected.setText("You Selected : " + ((JComboBox) e.getSource()).getSelectedItem());
             }
         });
         //Below this... is only to see the output in the log.
