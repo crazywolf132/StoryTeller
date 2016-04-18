@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 public class App extends JFrame {
 
     public String substitutionText;
+    public JLabel logo;
+    public JLabel motto;
     public JTextField name;
     public JTextField selected;
     private JLabel sceneLabel;
@@ -21,9 +23,14 @@ public class App extends JFrame {
     //Buttons:
     private JButton btnDo;
 
-    //Seperate class or something?
+    /**
+     * Maybe add this to its own class, along with the resizable = false thingo, so then every class can use it without
+     * recoding it.
+     */
     public static int WIDTH = 300;
     public static int HEIGHT = 300;
+    //End add to own class
+    //DONT ADD THIS \/\/\/ TO THAT CLASS
     public JComboBox comboBox;
 
 
@@ -31,18 +38,19 @@ public class App extends JFrame {
 
 
         /**
-         * Fair warning... this file is being used to test on how we could go about doing this...
-         * All of it is subject to change if we cannot get it to work, or there is an easier way.
+         * Lets try to make this resizeable, so then it can go to any screen.
          */
 
         getContentPane().setLayout(null);
         setSize(WIDTH, HEIGHT);
         setResizable(false);
-        setTitle("Some Title");
+        setTitle("Story Teller");
 
         //Set gui elements:
         int doWidth = 80;
         int doHeight = 20;
+        logo = new JLabel("Story Teller");
+        motto = new JLabel("How have you changed the world?");
         btnDo = new JButton("Do");
         characterName = new JLabel("Name: ");
         name = new JTextField(10);
@@ -60,6 +68,11 @@ public class App extends JFrame {
         characterName.setBounds(WIDTH / 2 - (inpWidth + charNameWidth + inpSpace) / 2, fromTop, charNameWidth, stdHeight);
         name.setBounds(WIDTH / 2 - (inpWidth + charNameWidth + inpSpace) / 2 + charNameWidth + inpSpace, fromTop, inpWidth, stdHeight);
         int sceneLabelWidth = (int) sceneLabel.getPreferredSize().getWidth();
+        //TODO: ADD LOGO HERE... BUT ADD IT IN THE MIDDLE AT THE TOP
+        //TODO: ADD MOTO HERE... BUT ADD IT IN THE MIDDLE AT THE TOP UNDER THE LOGO.
+        characterName.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2, fromTop, charNameWidth, stdHeight);
+        name.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2+charNameWidth+inpSpace, fromTop, inpWidth, stdHeight);
+        int sceneLabelWidth = (int)sceneLabel.getPreferredSize().getWidth();
         int labelSpace = 10;
         sceneLabel.setBounds(WIDTH / 2 - (inpWidth + inpSpace + sceneLabelWidth) / 2, fromTop + stdHeight + labelSpace, sceneLabelWidth, stdHeight);
         selected.setBounds(WIDTH / 2 - (inpWidth + inpSpace + sceneLabelWidth) / 2 + inpSpace + sceneLabelWidth, fromTop + stdHeight + labelSpace, inpWidth, stdHeight);
@@ -91,7 +104,6 @@ public class App extends JFrame {
         substitutionText = name.getText();
         System.out.println(substitutionText);
 
-
         //Finished log output.
 
         name.addActionListener(new ActionListener() {
@@ -110,6 +122,8 @@ public class App extends JFrame {
         getContentPane().add(selected);
         getContentPane().add(sceneLabel);
         getContentPane().add(comboBox);
+        getContentPane().add(logo);
+        getContentPane().add(motto);
     }
 
     public static void main(String[] args) {
