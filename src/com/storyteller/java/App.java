@@ -22,7 +22,7 @@ public class App extends JFrame{
         setSize(300, 300);
 
             Title = new JLabel("Story Teller");
-            Title.setBounds(0, 0, 89, 23);
+            Title.setBounds(63, 0, 89, 23);
             getContentPane().add(Title);
 
 
