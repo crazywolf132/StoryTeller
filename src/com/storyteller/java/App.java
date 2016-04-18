@@ -19,7 +19,9 @@ public class App extends JFrame {
     private JLabel sceneLabel;
     private JLabel characterName;
     private int count = 0;
-    public String[] scene = {"Horror", "Christmas", "Easter", "New Years", "Death"};
+    public String[] scene = {"Scene:","Horror", "Christmas", "Easter", "New Years", "Death"};
+    public String[] characters = {"# of Characters:","1", "2", "3", "4", "5", "6"};
+    public String[] humor = {"Humor:", "", ""};
     //Buttons:
     private JButton btnDo;
 
@@ -57,6 +59,7 @@ public class App extends JFrame {
         sceneLabel = new JLabel("Scene: ");
         selected = new JTextField(40);
         comboBox = new JComboBox();
+
 
         //Layout gui elements:
         btnDo.setBounds(WIDTH / 2 - doWidth / 2, HEIGHT - doHeight - 30, doWidth, doHeight);

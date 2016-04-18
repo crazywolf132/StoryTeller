@@ -31,5 +31,6 @@ public class Stories {
 
         // NULL CHECK HERE: if text is null, return an empty string instead of crashing. Can also return an error message?
         return text != null ? text.replace("$char$", substitutionText) : "";
+
     }
 }
