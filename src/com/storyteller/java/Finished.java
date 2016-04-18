@@ -1,21 +1,22 @@
 package com.storyteller.java;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
 
 /**
  * Created by Brayden on 18/04/2016.
  */
 public class Finished extends JFrame {
 
-        public static int WIDTH = 300;
-        public static int HEIGHT = 300;
+    public static int WIDTH = 300;
+    public static int HEIGHT = 300;
 
-        public Finished(String gs) {
-            super();
-            setVisible(true);
-            setSize(WIDTH, HEIGHT);
-            setTitle("Story Teller");
-            setResizable(false);
+    public Finished(String substitutionText, String selectedItem) {
+        super();
+        setVisible(true);
+        setSize(WIDTH, HEIGHT);
+        setTitle("Story Teller");
+        setResizable(false);
 
             /*//Adding what has been decided on the main menu.
             getContentPane().setLayout(null);
@@ -33,17 +34,16 @@ public class Finished extends JFrame {
             //^^^ This is only temp untill we add the actual story.
 
             */
-            getContentPane().setLayout(null);
-            setSize(WIDTH, HEIGHT);
+        getContentPane().setLayout(null);
+        setSize(WIDTH, HEIGHT);
 
-            Stories s = new Stories();
-            String story1 = s.generateStory(gs);
-            System.out.println(story1);
-            JTextArea story = new JTextArea(story1);
-            story.setLineWrap(true);
-            story.setBounds(0, 0, WIDTH, HEIGHT);//Made text area bigger!
-            getContentPane().add(story);
+        String story = Stories.generateStory(substitutionText, selectedItem);
+        System.out.println(story);
 
+        JTextArea storyTextArea = new JTextArea(story);
+        storyTextArea.setLineWrap(true);
+        storyTextArea.setBounds(0, 0, WIDTH, HEIGHT);//Made text area bigger!
 
-        }
+        getContentPane().add(storyTextArea);
     }
+}

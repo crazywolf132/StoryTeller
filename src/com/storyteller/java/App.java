@@ -1,19 +1,23 @@
 package com.storyteller.java;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class App extends JFrame{
+public class App extends JFrame {
 
-    public String char1;
+    public String substitutionText;
     public JTextField name;
     public JTextField selected;
     private JLabel sceneLabel;
     private JLabel characterName;
     private int count = 0;
-    public String[] scene = { "Horror", "Christmas", "Easter", "New Years", "Death"};
+    public String[] scene = {"Horror", "Christmas", "Easter", "New Years", "Death"};
     //Buttons:
     private JButton btnDo;
 
@@ -44,47 +48,48 @@ public class App extends JFrame{
         name = new JTextField(10);
         sceneLabel = new JLabel("Scene: ");
         selected = new JTextField(40);
-        JComboBox comboBox = new JComboBox();
+        comboBox = new JComboBox();
 
         //Layout gui elements:
-        btnDo.setBounds(WIDTH/2-doWidth/2, HEIGHT-doHeight-30, doWidth, doHeight);
+        btnDo.setBounds(WIDTH / 2 - doWidth / 2, HEIGHT - doHeight - 30, doWidth, doHeight);
         int stdHeight = 23;
-        int charNameWidth = (int)characterName.getPreferredSize().getWidth();
+        int charNameWidth = (int) characterName.getPreferredSize().getWidth();
         int inpWidth = 200;//same for chooser
         int inpSpace = 20;
         int fromTop = 20;
-        characterName.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2, fromTop, charNameWidth, stdHeight);
-        name.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2+charNameWidth+inpSpace, fromTop, inpWidth, stdHeight);
-        int sceneLabelWidth = (int)sceneLabel.getPreferredSize().getWidth();
+        characterName.setBounds(WIDTH / 2 - (inpWidth + charNameWidth + inpSpace) / 2, fromTop, charNameWidth, stdHeight);
+        name.setBounds(WIDTH / 2 - (inpWidth + charNameWidth + inpSpace) / 2 + charNameWidth + inpSpace, fromTop, inpWidth, stdHeight);
+        int sceneLabelWidth = (int) sceneLabel.getPreferredSize().getWidth();
         int labelSpace = 10;
-        sceneLabel.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2, fromTop+stdHeight+labelSpace, sceneLabelWidth, stdHeight);
-        selected.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2+inpSpace+sceneLabelWidth, fromTop+stdHeight+labelSpace, inpWidth, stdHeight);
-        comboBox.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2+inpSpace+sceneLabelWidth, fromTop+stdHeight*2+labelSpace*2, inpWidth, stdHeight);
+        sceneLabel.setBounds(WIDTH / 2 - (inpWidth + inpSpace + sceneLabelWidth) / 2, fromTop + stdHeight + labelSpace, sceneLabelWidth, stdHeight);
+        selected.setBounds(WIDTH / 2 - (inpWidth + inpSpace + sceneLabelWidth) / 2 + inpSpace + sceneLabelWidth, fromTop + stdHeight + labelSpace, inpWidth, stdHeight);
+        comboBox.setBounds(WIDTH / 2 - (inpWidth + inpSpace + sceneLabelWidth) / 2 + inpSpace + sceneLabelWidth, fromTop + stdHeight * 2 + labelSpace * 2, inpWidth, stdHeight);
 
-        for(int i = 0; i < scene.length; i++)
+        for (int i = 0; i < scene.length; i++) {
             comboBox.addItem(scene[count++]);
+        }
+
         selected.setEditable(false);
 
         //Event listener
-        btnDo.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                char1 = App.this.name.getText();
-                Finished finished = new Finished(char1);
-                String selectedItem = (String)App.this.comboBox.getSelectedItem();
+        btnDo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Yay made this work
+                substitutionText = App.this.name.getText();
+                String selectedItem = (String) App.this.comboBox.getSelectedItem();
+                Finished finished = new Finished(substitutionText, selectedItem);
             }
         });
         comboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    selected.setText("You Selected : " +
-                            ((JComboBox)e.getSource()).getSelectedItem());
-                }
+                selected.setText("You Selected : " +
+                        ((JComboBox) e.getSource()).getSelectedItem());
+            }
         });
         //Below this... is only to see the output in the log.
-        char1 = name.getText();
-        System.out.println(char1);
+        substitutionText = name.getText();
+        System.out.println(substitutionText);
 
 
         //Finished log output.
@@ -92,8 +97,9 @@ public class App extends JFrame{
         name.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                char1 = App.this.name.getText();
-                Finished finished = new Finished(char1);
+                substitutionText = App.this.name.getText();
+                String selectedItem = (String) App.this.comboBox.getSelectedItem();
+                Finished finished = new Finished(substitutionText, selectedItem);
             }
         });
 
