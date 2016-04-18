@@ -14,6 +14,12 @@ public class App extends JFrame{
     private JLabel characterName;
     private int count = 0;
     public String[] scene = { "Horror", "Christmas", "Easter", "New Years", "Death"};
+    //Buttons:
+    private JButton btnDo;
+
+    //Seperate class or something?
+    public static int WIDTH = 300;
+    public static int HEIGHT = 300;
 
     public App() {
 
@@ -24,7 +30,23 @@ public class App extends JFrame{
          */
 
         getContentPane().setLayout(null);
-        setSize(300, 300);
+        setSize(WIDTH, HEIGHT);
+
+        //Set up buttons:
+        int doWidth = 80;
+        int doHeight = 20;
+        btnDo = new JButton("Do");
+        btnDo.setBounds(WIDTH/2-doWidth/2, HEIGHT-doHeight-30, doWidth, doHeight);
+        getContentPane().add(btnDo);
+        //Event listener
+        btnDo.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                char1 = App.this.name.getText();
+                Finished finished = new Finished(char1);
+            }
+        });
 
         characterName = new JLabel("Name: ");
         characterName.setBounds(0, 0, 89, 23);
@@ -47,17 +69,17 @@ public class App extends JFrame{
         getContentPane().add(comboBox);
 
 
-            for(int i = 0; i < scene.length; i++)
-                comboBox.addItem(scene[count++]);
-            selected.setEditable(false);
+        for(int i = 0; i < scene.length; i++)
+            comboBox.addItem(scene[count++]);
+        selected.setEditable(false);
 
-            comboBox.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                        selected.setText("You Selected : " +
-                                ((JComboBox)e.getSource()).getSelectedItem());
-                    }
-            });
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    selected.setText("You Selected : " +
+                            ((JComboBox)e.getSource()).getSelectedItem());
+                }
+        });
         //Below this... is only to see the output in the log.
         char1 = name.getText();
         System.out.println(char1);
