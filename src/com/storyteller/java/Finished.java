@@ -1,32 +1,30 @@
 package com.storyteller.java;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.File;
-import java.util.Scanner;
 
 /**
  * Created by Brayden on 18/04/2016.
  */
-public class Finished {
-    public static void main(String s[]) {
+public class Finished extends JFrame {
 
-        JFrame frame = new JFrame("Story Teller");
+        public Finished(String message) {
+            super();
+            setVisible(true);
+            setSize(300, 300);
+            setTitle(message);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout());
+            //Adding what has been decided on the main menu.
+            getContentPane().setLayout(null);
+            //Leave ^^^ There so then it can render to the screen.
+            setSize(300, 300);
+            //^^^ Sets screen size.
+            JTextArea info1 = new JTextArea(message);
+            info1.setBounds(63, 100, 89, 23);
+            getContentPane().add(info1);
+            //^^^ Adds temp textarea to display there input.
 
-        JButton makenew = new JButton();
-        makenew.setText("Make Another");
-
-        panel.add(makenew);
-
-        frame.add(panel);
-        frame.setSize(300, 300);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-
+            JLabel label = new JLabel("Char 1: ");
+            label.setBounds(0, 100, 89, 23);
+            getContentPane().add(label);
+        }
     }
-
-}
