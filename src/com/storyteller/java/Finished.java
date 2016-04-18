@@ -7,11 +7,15 @@ import javax.swing.*;
  */
 public class Finished extends JFrame {
 
+        public static int WIDTH = 300;
+        public static int HEIGHT = 300;
+
         public Finished(String gs) {
             super();
             setVisible(true);
-            setSize(300, 300);
+            setSize(WIDTH, HEIGHT);
             setTitle("Story Teller");
+            setResizable(false);
 
             /*//Adding what has been decided on the main menu.
             getContentPane().setLayout(null);
@@ -30,13 +34,13 @@ public class Finished extends JFrame {
 
             */
             getContentPane().setLayout(null);
-            setSize(300, 300);
+            setSize(WIDTH, HEIGHT);
 
             Stories s = new Stories();
             String story1 = s.generateStory(gs);
             System.out.println(story1);
             JTextArea story = new JTextArea(story1);
-            story.setBounds(0, 0, 300, 300);//Made text area bigger!
+            story.setBounds(0, 0, WIDTH, HEIGHT);//Made text area bigger!
             getContentPane().add(story);
 
 
