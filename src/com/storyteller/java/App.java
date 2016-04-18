@@ -24,8 +24,10 @@ public class App extends JFrame{
         name = new JTextField(10);
         name.setBounds(63, 0, 89, 23);
         getContentPane().add(name);
+        //Below this... is only to see the output in the log.
         char1 = name.getText();
         System.out.println(char1);
+        //Finished log output.
 
         name.addActionListener(new ActionListener() {
             @Override

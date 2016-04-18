@@ -36,12 +36,7 @@ public class Finished extends JFrame {
             String story1 = s.generateStory(gs);
             System.out.println(story1);
             JTextArea story = new JTextArea(story1);
-
             story.setBounds(63, 100, 89, 23);
-
-
-
-
             getContentPane().add(story);
 
 
