@@ -27,8 +27,7 @@ public class App extends JFrame{
 
 
         /**
-         * Fair warning... this file is being used to test on how we could go about doing this...
-         * All of it is subject to change if we cannot get it to work, or there is an easier way.
+         * Lets try to make this resizeable, so then it can go to any screen.
          */
 
         getContentPane().setLayout(null);
