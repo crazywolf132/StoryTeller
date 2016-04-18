@@ -13,12 +13,18 @@ public class App extends JFrame{
     private JTextField char2;
     private JLabel name1;
     private JLabel name2;
+    private JLabel Title;
 
     public App() {
 
         //Character 1 setup.
         getContentPane().setLayout(null);
         setSize(300, 300);
+
+            Title = new JLabel("Story Teller");
+            Title.setBounds(0, 0, 89, 23);
+            getContentPane().add(Title);
+
 
             char1 = new JTextField("Character 1");
             char1.setBounds(63, 100, 89, 23);
