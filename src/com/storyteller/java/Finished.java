@@ -11,7 +11,7 @@ public class Finished extends JFrame {
             super();
             setVisible(true);
             setSize(300, 300);
-            setTitle(message);
+            setTitle("Story Teller");
 
             //Adding what has been decided on the main menu.
             getContentPane().setLayout(null);
@@ -26,5 +26,6 @@ public class Finished extends JFrame {
             JLabel label = new JLabel("Char 1: ");
             label.setBounds(0, 100, 89, 23);
             getContentPane().add(label);
+            //^^^ This is only temp untill we add the actual story.
         }
     }
