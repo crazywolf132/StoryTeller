@@ -10,7 +10,7 @@ public class Stories {
     }
 
     public String generateStory() {
-        ;h
+        ;
     }
 
 }
