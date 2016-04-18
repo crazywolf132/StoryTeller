@@ -17,7 +17,7 @@ public class Stories {
 
     public String generateStory(String char1) {
         //story.txt
-        URL url = Stories.class.getClassLoader().getResource("story.txt");
+        URL url = getClass().getResource("story.txt");
         String text = null;
         try {
             text = new String(Files.readAllBytes(new File(url.toURI()).toPath()), "UTF-8");
