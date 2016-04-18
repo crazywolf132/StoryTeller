@@ -4,10 +4,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class App extends JFrame{
 
     public String char1;
+    public JLabel logo;
+    public JLabel motto;
     public JTextField name;
     public JTextField selected;
     private JLabel sceneLabel;
@@ -17,9 +18,14 @@ public class App extends JFrame{
     //Buttons:
     private JButton btnDo;
 
-    //Seperate class or something?
+    /**
+     * Maybe add this to its own class, along with the resizable = false thingo, so then every class can use it without
+     * recoding it.
+     */
     public static int WIDTH = 300;
     public static int HEIGHT = 300;
+    //End add to own class
+    //DONT ADD THIS \/\/\/ TO THAT CLASS
     public JComboBox comboBox;
 
 
@@ -33,11 +39,13 @@ public class App extends JFrame{
         getContentPane().setLayout(null);
         setSize(WIDTH, HEIGHT);
         setResizable(false);
-        setTitle("Some Title");
+        setTitle("Story Teller");
 
         //Set gui elements:
         int doWidth = 80;
         int doHeight = 20;
+        logo = new JLabel("Story Teller");
+        motto = new JLabel("How have you changed the world?");
         btnDo = new JButton("Do");
         characterName = new JLabel("Name: ");
         name = new JTextField(10);
@@ -52,6 +60,8 @@ public class App extends JFrame{
         int inpWidth = 200;//same for chooser
         int inpSpace = 20;
         int fromTop = 20;
+        //TODO: ADD LOGO HERE... BUT ADD IT IN THE MIDDLE AT THE TOP
+        //TODO: ADD MOTO HERE... BUT ADD IT IN THE MIDDLE AT THE TOP UNDER THE LOGO.
         characterName.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2, fromTop, charNameWidth, stdHeight);
         name.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2+charNameWidth+inpSpace, fromTop, inpWidth, stdHeight);
         int sceneLabelWidth = (int)sceneLabel.getPreferredSize().getWidth();
@@ -84,8 +94,6 @@ public class App extends JFrame{
         //Below this... is only to see the output in the log.
         char1 = name.getText();
         System.out.println(char1);
-
-
         //Finished log output.
 
         name.addActionListener(new ActionListener() {
@@ -103,6 +111,8 @@ public class App extends JFrame{
         getContentPane().add(selected);
         getContentPane().add(sceneLabel);
         getContentPane().add(comboBox);
+        getContentPane().add(logo);
+        getContentPane().add(motto);
     }
 
     public static void main(String[] args) {
