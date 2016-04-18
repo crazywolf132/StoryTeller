@@ -7,7 +7,7 @@ import javax.swing.*;
  */
 public class Finished extends JFrame {
 
-        public Finished(String generateStory) {
+        public Finished(String gs) {
             super();
             setVisible(true);
             setSize(300, 300);
@@ -31,8 +31,17 @@ public class Finished extends JFrame {
             */
             getContentPane().setLayout(null);
             setSize(300, 300);
-            JTextArea story = new JTextArea(generateStory);
+
+            Stories s = new Stories();
+            String story1 = s.generateStory(gs);
+            System.out.println(story1);
+            JTextArea story = new JTextArea(story1);
+
             story.setBounds(63, 100, 89, 23);
+
+
+
+
             getContentPane().add(story);
 
 

@@ -14,9 +14,20 @@ public class App extends JFrame{
     private JLabel name2;
     private JLabel Title;
 
+    public JTextField name;
+
     public App() {
 
-        //Character 1 setup.
+
+        getContentPane().setLayout(null);
+        setSize(300, 300);
+
+        name = new JTextField("name");
+        name.setBounds(63, 0, 89, 23);
+        getContentPane().add(name);
+
+
+        /* //Character 1 setup.
         getContentPane().setLayout(null);
         setSize(300, 300);
 
@@ -39,11 +50,11 @@ public class App extends JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 mensaje = App.this.char1.getText();
-                Finished finished = new Finished(mensaje);
+                Stories stories = new Stories();
             }
         });
 
-
+*/
 
 
 
