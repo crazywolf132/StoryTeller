@@ -7,74 +7,33 @@ import java.awt.event.ActionListener;
 
 public class App extends JFrame{
 
-    private String mensaje;
-    private JTextField char1;
-    private JTextField char2;
-    private JLabel name1;
-    private JLabel name2;
-    private JLabel Title;
+    public String char1;
 
     public JTextField name;
 
     public App() {
 
 
+        /**
+         * Fair warning... this file is being used to test on how we could go about doing this...
+         * All of it is subject to change if we cannot get it to work, or there is an easier way.
+         */
+
         getContentPane().setLayout(null);
         setSize(300, 300);
-
-        name = new JTextField("name");
+        name = new JTextField(10);
         name.setBounds(63, 0, 89, 23);
         getContentPane().add(name);
+        char1 = name.getText();
+        System.out.println(char1);
 
-
-        /* //Character 1 setup.
-        getContentPane().setLayout(null);
-        setSize(300, 300);
-
-            Title = new JLabel("Story Teller");
-            Title.setBounds(63, 0, 89, 23);
-            getContentPane().add(Title);
-
-
-            char1 = new JTextField("Character 1");
-            char1.setBounds(63, 100, 89, 23);
-            getContentPane().add(char1);
-
-            name1 = new JLabel("name: ");
-            name1.setBounds(0, 100, 89, 23);
-            getContentPane().add(name1);
-
-
-        char1.addActionListener(new ActionListener() {
-
+        name.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                mensaje = App.this.char1.getText();
-                Stories stories = new Stories();
+            public void actionPerformed(ActionEvent e) {
+                char1 = App.this.name.getText();
+                Finished finished = new Finished(char1);
             }
         });
-
-*/
-
-
-
-        //Character 2 setup.
-        /*
-        char2 = new JTextField("Character 2");
-        char2.setBounds(63, 210, 89, 23);
-        getContentPane().add(char2);
-
-        name2 = new JLabel("name: ");
-        name2.setBounds(0, 210, 89, 23);
-        getContentPane().add(name2);
-
-        char2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                mensaje = App.this.char2.getText();
-                Finished finished = new Finished(mensaje);
-            }
-        });*/
     }
 
     public static void main(String[] args) {
