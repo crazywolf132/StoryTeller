@@ -59,6 +59,9 @@ public class App extends JFrame {
         sceneLabel = new JLabel("Scene: ");
         selected = new JTextField(40);
         comboBox = new JComboBox();
+        JComboBox charactersBox = new JComboBox();
+        JComboBox humorBox = new JComboBox();
+
 
 
         //Layout gui elements:
@@ -83,6 +86,10 @@ public class App extends JFrame {
         for (int i = 0; i < scene.length; i++) {
             comboBox.addItem(scene[count++]);
         }
+        for (int i = 0; i < characters.length; i++) {
+            charactersBox.addItem(scene[count++]);
+        }
+        for (int i = 0; i < humor.length;)
 
         selected.setEditable(false);
 
@@ -101,12 +108,6 @@ public class App extends JFrame {
                 selected.setText("You Selected : " + ((JComboBox) e.getSource()).getSelectedItem());
             }
         });
-        //Below this... is only to see the output in the log.
-        substitutionText = name.getText();
-        System.out.println(substitutionText);
-
-        //Finished log output.
-
         name.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -125,6 +126,8 @@ public class App extends JFrame {
         getContentPane().add(comboBox);
         getContentPane().add(logo);
         getContentPane().add(motto);
+        getContentPane().add(characters);
+        getContentPane().add(humor);
     }
 
     public static void main(String[] args) {
