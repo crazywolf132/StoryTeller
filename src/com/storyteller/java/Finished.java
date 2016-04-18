@@ -2,6 +2,8 @@ package com.storyteller.java;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.util.Scanner;
 
 /**
  * Created by Brayden on 18/04/2016.

@@ -16,12 +16,12 @@ public class App {
 
         JLabel header = new JLabel("Story Teller.");
         JTextField char1 = new JTextField(10);
+        //public String char1 = new JTextField(10);
         JTextField char2 = new JTextField(10);
         JButton generate = new JButton();
         generate.setText("Generate");
 
         panel.add(header);
-        //panel.add(button);
         panel.add(char1);
         panel.add(char2);
         panel.add(generate);
