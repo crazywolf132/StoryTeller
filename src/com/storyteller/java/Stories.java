@@ -9,8 +9,9 @@ public class Stories {
         ;
     }
 
-    public String generateStory() {
-        ;h
+    public String generateStory(String char1) {
+        //story.txt
+        URL url = Stories.class.getClassLoader().getResource("story.txt");
     }
 
 }
