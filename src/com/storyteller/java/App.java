@@ -48,7 +48,7 @@ public class App extends JFrame{
         btnDo.setBounds(WIDTH/2-doWidth/2, HEIGHT-doHeight-30, doWidth, doHeight);
         int stdHeight = 23;
         int charNameWidth = (int)characterName.getPreferredSize().getWidth();
-        int inpWidth = 200;
+        int inpWidth = 200;//same for chooser
         int inpSpace = 20;
         int fromTop = 20;
         characterName.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2, fromTop, charNameWidth, stdHeight);
@@ -57,7 +57,7 @@ public class App extends JFrame{
         int labelSpace = 10;
         sceneLabel.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2, fromTop+stdHeight+labelSpace, sceneLabelWidth, stdHeight);
         selected.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2+inpSpace+sceneLabelWidth, fromTop+stdHeight+labelSpace, inpWidth, stdHeight);
-        comboBox.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2+inpSpace+sceneLabelWidth, fromTop+stdHeight*2+labelSpace*2, 90, stdHeight);
+        comboBox.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2+inpSpace+sceneLabelWidth, fromTop+stdHeight*2+labelSpace*2, inpWidth, stdHeight);
 
         for(int i = 0; i < scene.length; i++)
             comboBox.addItem(scene[count++]);
