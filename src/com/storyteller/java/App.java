@@ -20,6 +20,7 @@ public class App extends JFrame{
     //Seperate class or something?
     public static int WIDTH = 300;
     public static int HEIGHT = 300;
+    public JComboBox comboBox;
 
     public App() {
 
@@ -31,7 +32,7 @@ public class App extends JFrame{
 
         getContentPane().setLayout(null);
         setSize(WIDTH, HEIGHT);
-        setResizable(false);
+        setResizable(true);
 
         //Set up buttons:
         int doWidth = 80;
@@ -46,6 +47,7 @@ public class App extends JFrame{
             {
                 char1 = App.this.name.getText();
                 Finished finished = new Finished(char1);
+                String selectedItem = (String)App.this.comboBox.getSelectedItem();
             }
         });
 
@@ -84,8 +86,6 @@ public class App extends JFrame{
         //Below this... is only to see the output in the log.
         char1 = name.getText();
         System.out.println(char1);
-
-
         //Finished log output.
 
         name.addActionListener(new ActionListener() {

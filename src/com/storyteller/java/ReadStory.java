@@ -23,7 +23,8 @@ public class ReadStory extends JFrame {
         setSize(300, 300);
 
         Stories s = new Stories();
-        String story = s.generateStory(gs);
+       // String story = s.generateStory(gs);
+        String story = null;
         System.out.println(story);
         output = new JTextArea(story);
         output.setBounds(63, 0, 89, 23);
