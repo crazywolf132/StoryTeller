@@ -49,6 +49,7 @@ public class App extends JFrame{
 
 
         //Character 2 setup.
+        /*
         char2 = new JTextField("Character 2");
         char2.setBounds(63, 210, 89, 23);
         getContentPane().add(char2);
@@ -63,7 +64,7 @@ public class App extends JFrame{
                 mensaje = App.this.char2.getText();
                 Finished finished = new Finished(mensaje);
             }
-        });
+        });*/
     }
 
     public static void main(String[] args) {
