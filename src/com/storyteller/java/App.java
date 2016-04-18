@@ -67,7 +67,6 @@ public class App extends JFrame {
         int fromTop = 20;
         characterName.setBounds(WIDTH / 2 - (inpWidth + charNameWidth + inpSpace) / 2, fromTop, charNameWidth, stdHeight);
         name.setBounds(WIDTH / 2 - (inpWidth + charNameWidth + inpSpace) / 2 + charNameWidth + inpSpace, fromTop, inpWidth, stdHeight);
-        int sceneLabelWidth = (int) sceneLabel.getPreferredSize().getWidth();
         //TODO: ADD LOGO HERE... BUT ADD IT IN THE MIDDLE AT THE TOP
         //TODO: ADD MOTO HERE... BUT ADD IT IN THE MIDDLE AT THE TOP UNDER THE LOGO.
         characterName.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2, fromTop, charNameWidth, stdHeight);
