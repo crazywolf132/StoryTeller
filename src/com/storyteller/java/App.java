@@ -20,7 +20,6 @@ public class App extends JFrame{
     //Seperate class or something?
     public static int WIDTH = 300;
     public static int HEIGHT = 300;
-    public JComboBox comboBox;
 
     public App() {
 
@@ -32,14 +31,38 @@ public class App extends JFrame{
 
         getContentPane().setLayout(null);
         setSize(WIDTH, HEIGHT);
-        setResizable(true);
+        setResizable(false);
+        setTitle("Some Title");
 
-        //Set up buttons:
+        //Set gui elements:
         int doWidth = 80;
         int doHeight = 20;
         btnDo = new JButton("Do");
+        characterName = new JLabel("Name: ");
+        name = new JTextField(10);
+        sceneLabel = new JLabel("Scene: ");
+        selected = new JTextField(40);
+        JComboBox comboBox = new JComboBox();
+
+        //Layout gui elements:
         btnDo.setBounds(WIDTH/2-doWidth/2, HEIGHT-doHeight-30, doWidth, doHeight);
-        getContentPane().add(btnDo);
+        int stdHeight = 23;
+        int charNameWidth = (int)characterName.getPreferredSize().getWidth();
+        int inpWidth = 200;//same for chooser
+        int inpSpace = 20;
+        int fromTop = 20;
+        characterName.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2, fromTop, charNameWidth, stdHeight);
+        name.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2+charNameWidth+inpSpace, fromTop, inpWidth, stdHeight);
+        int sceneLabelWidth = (int)sceneLabel.getPreferredSize().getWidth();
+        int labelSpace = 10;
+        sceneLabel.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2, fromTop+stdHeight+labelSpace, sceneLabelWidth, stdHeight);
+        selected.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2+inpSpace+sceneLabelWidth, fromTop+stdHeight+labelSpace, inpWidth, stdHeight);
+        comboBox.setBounds(WIDTH/2-(inpWidth+inpSpace+sceneLabelWidth)/2+inpSpace+sceneLabelWidth, fromTop+stdHeight*2+labelSpace*2, inpWidth, stdHeight);
+
+        for(int i = 0; i < scene.length; i++)
+            comboBox.addItem(scene[count++]);
+        selected.setEditable(false);
+
         //Event listener
         btnDo.addActionListener(new ActionListener()
         {
@@ -47,35 +70,8 @@ public class App extends JFrame{
             {
                 char1 = App.this.name.getText();
                 Finished finished = new Finished(char1);
-                String selectedItem = (String)App.this.comboBox.getSelectedItem();
             }
         });
-
-        characterName = new JLabel("Name: ");
-        characterName.setBounds(0, 0, 89, 23);
-        getContentPane().add(characterName);
-
-        name = new JTextField(10);
-        name.setBounds(63, 0, 89, 23);
-        getContentPane().add(name);
-
-        selected = new JTextField(40);
-        selected.setBounds(63, 50, 89, 23);
-        getContentPane().add(selected);
-
-        sceneLabel = new JLabel("Scene: ");
-        sceneLabel.setBounds(0, 100, 89, 23);
-        getContentPane().add(sceneLabel);
-
-        JComboBox comboBox = new JComboBox();
-        comboBox.setBounds(63, 100, 89, 23);
-        getContentPane().add(comboBox);
-
-
-        for(int i = 0; i < scene.length; i++)
-            comboBox.addItem(scene[count++]);
-        selected.setEditable(false);
-
         comboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,6 +82,8 @@ public class App extends JFrame{
         //Below this... is only to see the output in the log.
         char1 = name.getText();
         System.out.println(char1);
+
+
         //Finished log output.
 
         name.addActionListener(new ActionListener() {
@@ -95,6 +93,14 @@ public class App extends JFrame{
                 Finished finished = new Finished(char1);
             }
         });
+
+        //Add all gui elements to content pane:
+        getContentPane().add(btnDo);
+        getContentPane().add(characterName);
+        getContentPane().add(name);
+        getContentPane().add(selected);
+        getContentPane().add(sceneLabel);
+        getContentPane().add(comboBox);
     }
 
     public static void main(String[] args) {
