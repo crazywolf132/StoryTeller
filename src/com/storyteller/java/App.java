@@ -31,6 +31,7 @@ public class App extends JFrame{
 
         getContentPane().setLayout(null);
         setSize(WIDTH, HEIGHT);
+        setResizable(false);
 
         //Set up buttons:
         int doWidth = 80;
