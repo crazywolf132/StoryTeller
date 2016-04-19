@@ -7,6 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 
 public class App extends JFrame {
@@ -51,8 +55,8 @@ public class App extends JFrame {
         //Set gui elements:
         int doWidth = 80;
         int doHeight = 20;
-        logo = new JLabel("Story Teller");
-        motto = new JLabel("How have you changed the world?");
+        logo = new JLabel("Story Teller");//new
+        motto = new JLabel("How have you changed the world?");//new
         btnDo = new JButton("Do");
         characterName = new JLabel("Name: ");
         name = new JTextField(10);
@@ -62,34 +66,60 @@ public class App extends JFrame {
         JComboBox charactersBox = new JComboBox();
         JComboBox humorBox = new JComboBox();
 
-
+        //Handle resize event:
+        addComponentListener(new FrameListen());
 
         //Layout gui elements:
-        btnDo.setBounds(WIDTH / 2 - doWidth / 2, HEIGHT - doHeight - 30, doWidth, doHeight);
+        //...
         int stdHeight = 23;
+        //Get text widths:
         int charNameWidth = (int) characterName.getPreferredSize().getWidth();
+        int sceneLabelWidth = (int)sceneLabel.getPreferredSize().getWidth();
+        int logoWidth = (int) logo.getPreferredSize().getWidth();
+        int mottoWidth = (int) motto.getPreferredSize().getWidth();
+        //Some constants:
         int inpWidth = 200;//same for chooser
         int inpSpace = 20;
         int fromTop = 20;
-        characterName.setBounds(WIDTH / 2 - (inpWidth + charNameWidth + inpSpace) / 2, fromTop, charNameWidth, stdHeight);
-        name.setBounds(WIDTH / 2 - (inpWidth + charNameWidth + inpSpace) / 2 + charNameWidth + inpSpace, fromTop, inpWidth, stdHeight);
-        //TODO: ADD LOGO HERE... BUT ADD IT IN THE MIDDLE AT THE TOP
-        //TODO: ADD MOTO HERE... BUT ADD IT IN THE MIDDLE AT THE TOP UNDER THE LOGO.
-        characterName.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2, fromTop, charNameWidth, stdHeight);
-        name.setBounds(WIDTH/2-(inpWidth+charNameWidth+inpSpace)/2+charNameWidth+inpSpace, fromTop, inpWidth, stdHeight);
-        int sceneLabelWidth = (int)sceneLabel.getPreferredSize().getWidth();
-        int labelSpace = 10;
-        sceneLabel.setBounds(WIDTH / 2 - (inpWidth + inpSpace + sceneLabelWidth) / 2, fromTop + stdHeight + labelSpace, sceneLabelWidth, stdHeight);
-        selected.setBounds(WIDTH / 2 - (inpWidth + inpSpace + sceneLabelWidth) / 2 + inpSpace + sceneLabelWidth, fromTop + stdHeight + labelSpace, inpWidth, stdHeight);
-        comboBox.setBounds(WIDTH / 2 - (inpWidth + inpSpace + sceneLabelWidth) / 2 + inpSpace + sceneLabelWidth, fromTop + stdHeight * 2 + labelSpace * 2, inpWidth, stdHeight);
+        int stdSpace = 10;
+        //For convienience:
+        int tempLineWidth;
+        int tempLineStart;
+        int stateTop = fromTop;//From top currently.
+        //Start actual layout (putting things in place):
+        //Add logo:
+        logo.setBounds(WIDTH/2-logoWidth/2, stateTop, logoWidth, stdHeight);//stateTop for all...
+        stateTop += stdHeight+5;//+5 for motto below logo, +stdSpace normally
+        //Add motto:
+        motto.setBounds(WIDTH/2-mottoWidth/2, stateTop, mottoWidth, stdHeight);
+        stateTop += stdHeight+stdSpace;
+        //Add character name line:
+        tempLineWidth = inpWidth+charNameWidth+inpSpace;
+        tempLineStart = WIDTH/2-tempLineWidth/2;
+        characterName.setBounds(tempLineStart, stateTop, charNameWidth, stdHeight);
+        name.setBounds(tempLineStart+charNameWidth+inpSpace, stateTop, inpWidth, stdHeight);
+        stateTop += stdHeight+stdSpace;
+        //Add scene input: TODO: seperate comboBox add.
+        tempLineWidth = inpWidth+inpSpace+sceneLabelWidth;
+        tempLineStart = WIDTH/2-tempLineWidth/2;
+        sceneLabel.setBounds(tempLineStart, stateTop, sceneLabelWidth, stdHeight);
+        selected.setBounds(tempLineStart+inpSpace+sceneLabelWidth, stateTop, inpWidth, stdHeight);
+        stateTop += stdHeight+stdSpace;
+        comboBox.setBounds(tempLineStart+inpSpace+sceneLabelWidth, stateTop, inpWidth, stdHeight);
+        stateTop += stdHeight+stdSpace;//Not needed, but easier for later additions.
+        //...
+        //Add do button:
+        btnDo.setBounds(WIDTH/2-doWidth/2, HEIGHT-doHeight-30, doWidth, doHeight);//30 from bottom.
 
         for (int i = 0; i < scene.length; i++) {
             comboBox.addItem(scene[count++]);
         }
+        /*
         for (int i = 0; i < characters.length; i++) {
             charactersBox.addItem(scene[count++]);
         }
         for (int i = 0; i < humor.length;)
+        */
 
         selected.setEditable(false);
 
@@ -126,8 +156,24 @@ public class App extends JFrame {
         getContentPane().add(comboBox);
         getContentPane().add(logo);
         getContentPane().add(motto);
-        getContentPane().add(characters);
-        getContentPane().add(humor);
+        //getContentPane().add(characters);
+        //getContentPane().add(humor);
+    }
+
+    private class FrameListen implements ComponentListener{
+        public void componentHidden(ComponentEvent arg0) {
+        }
+        public void componentMoved(ComponentEvent arg0) {
+        }
+        public void componentShown(ComponentEvent arg0) {
+
+        }
+
+        @Override
+        public void componentResized(ComponentEvent e) {
+            System.out.println("here");
+
+        }
     }
 
     public static void main(String[] args) {
