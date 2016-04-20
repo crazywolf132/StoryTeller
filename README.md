@@ -1,4 +1,7 @@
-WELCOME TO STORY TELLER APP.
+#WELCOME TO STORY TELLER APP.
+
+##THIS PROJECT HAS BEEN MOVED TO GITLAB: http://gitpull.xyz
+
 
 This is how to set-it up with intellij:
 
