@@ -1,7 +1,7 @@
 #WELCOME TO STORY TELLER APP.
 
 ##THIS PROJECT HAS BEEN MOVED TO GITLAB: http://gitpull.xyz
-
+If you need any help, email: crazywolf132@gmail.com
 
 This is how to set-it up with intellij:
 
